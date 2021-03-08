@@ -27,7 +27,7 @@ public class GridManager : MonoBehaviour
     public Vector2[,] m_Grid; //a 2D array of the grid
 
     [Header("GridLocations")]
-    public List<GridObject> m_PieceGridLocation = new List<GridObject>(); //the pieces location on the grid
+    public List<GridObject> m_PieceGridLocations = new List<GridObject>(); //the pieces location on the grid
 
 
     /// <summary>
@@ -37,9 +37,9 @@ public class GridManager : MonoBehaviour
     /// <param name="_length"></param>
     private void CreateGrid(float _width, float _length)
     {
-        for (int y = 0; y < _length; y++)
+        for (int x = 0; x < _width; x++)
         {
-            for (int x = 0; x < _width; x++)
+            for (int y = 0; y < _length; y++)
             {
                 m_Grid[x, y] = new Vector2(m_GridOffset.x + x, m_GridOffset.y - y);
             }
