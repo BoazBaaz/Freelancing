@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GridSize: {x: 3, y: 3}
-  m_GridOffset: {x: 0, y: 0}
-  m_PieceGridLocations: []
+  m_GridOffset: {x: -1, y: -1}
+  m_Piece: {fileID: 5961732519112206599, guid: b2a42105498844848a96977855c32d62, type: 3}
