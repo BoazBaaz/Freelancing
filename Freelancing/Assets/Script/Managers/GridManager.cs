@@ -54,12 +54,11 @@ public class GridManager : MonoBehaviour
     {
         foreach (GridObject piece in m_Grid)
         {
-            if (piece.gridObject == _oldPiece && piece.gridObject == GameManager.instance.dummyPiece)
+            if (piece.gridObject == _oldPiece && piece.gridObject.name.Contains(GameManager.instance.dummyPiece.name))
             {
-                _newPiece.transform.position = _oldPiece.transform.position;
-                _newPiece.transform.parent = _oldPiece.transform.parent;
-
-                m_Grid[(int)piece.gridID.x, (int)piece.gridID.y].gridObject = _newPiece;
+                m_Grid[(int)piece.gridID.x, (int)piece.gridID.y].SetObject(_newPiece);
+                Destroy(_oldPiece);
+                return;
             }
         }
         Debug.LogError($"ERROR: Could not find a match using {_oldPiece}!");
@@ -96,6 +95,14 @@ public class GridManager : MonoBehaviour
             gridID = _gridID;
 
             gridObject.transform.position = gridPosition;
+        }
+
+        public void SetObject(GameObject _newObject)
+        {
+            _newObject.transform.parent = gridObject.transform.parent;
+            _newObject.transform.position = gridPosition;
+
+            gridObject = _newObject;
         }
     }
 }
