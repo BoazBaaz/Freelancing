@@ -13,10 +13,6 @@ public class GridManager : MonoBehaviour
             instance = this;
         else
             Destroy(this);
-
-        //create the grid for all objects to move on
-        m_Grid = new GridObject[(int)m_GridSize.x, (int)m_GridSize.y];
-        CreateGrid(m_GridSize.x, m_GridSize.y);
     }
 
     [Header("Grid")]
@@ -24,8 +20,12 @@ public class GridManager : MonoBehaviour
     public Vector2 m_GridOffset; //the offset the grid will be created at
     public GridObject[,] m_Grid; //a 2D array of the grid
 
-    [Header("Temp")]
-    public GameObject dummyPiece;
+    private void Start()
+    {
+        //create the grid
+        m_Grid = new GridObject[(int)m_GridSize.x, (int)m_GridSize.y];
+        CreateGrid(m_GridSize.x, m_GridSize.y);
+    }
 
     /// <summary>
     /// Create a grid using the a 2D array.
@@ -38,30 +38,31 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < _length; y++)
             {
-                Vector2 dmpPosition = new Vector2(m_GridOffset.x + x, m_GridOffset.y + y);
-                GameObject dmP = Instantiate(dummyPiece, dmpPosition, Quaternion.identity);
-                m_Grid[x, y] = new GridObject(dmP , dmpPosition);
+                GameObject dmP = Instantiate(GameManager.instance.dummyPiece, Vector2.zero, Quaternion.identity, GameManager.instance.m_FieldPiecesParent.transform);
+                m_Grid[x, y] = new GridObject(dmP , new Vector2(m_GridOffset.x + x, m_GridOffset.y + y), new Vector2(x, y));
             }
         }
     }
 
     /// <summary>
-    /// Sets the object to the corresponding grid location
+    /// Sets the object to the grid location of the oldObject
     /// </summary>
-    /// <param name="_gridObject">The object you are trying to place</param>
-    /// <param name="xGrid">The x position in the grid</param>
-    /// <param name="yGrid">The y position in the grid</param>
+    /// <param name="_newPiece">The object you are trying to place</param>
+    /// <param name="_oldPiece">The object you are replacing</param>
     /// <returns></returns>
-    public void SetGridPieceOnLocation(GameObject _gridObject, int xGrid, int yGrid)
+    public void SetGridPieceOnLocation(GameObject _newPiece, GameObject _oldPiece)
     {
-        //check if the grid locations is not already filled.
-        if (m_Grid[xGrid, yGrid].gridObject != dummyPiece)
-            Debug.LogError($"ERROR: Trying to place {_gridObject} on already full grid location x:{xGrid}, y:{yGrid}");
-        else
+        foreach (GridObject piece in m_Grid)
         {
-            _gridObject.transform.position = m_Grid[xGrid, yGrid].gridPosition;
-            m_Grid[xGrid, yGrid].gridObject = _gridObject;
+            if (piece.gridObject == _oldPiece && piece.gridObject == GameManager.instance.dummyPiece)
+            {
+                _newPiece.transform.position = _oldPiece.transform.position;
+                _newPiece.transform.parent = _oldPiece.transform.parent;
+
+                m_Grid[(int)piece.gridID.x, (int)piece.gridID.y].gridObject = _newPiece;
+            }
         }
+        Debug.LogError($"ERROR: Could not find a match using {_oldPiece}!");
     }
 
     /// <summary>
@@ -79,17 +80,22 @@ public class GridManager : MonoBehaviour
     public struct GridObject
     {
         public GameObject gridObject;
-        public Vector2 gridPosition;
+        public Vector2 gridPosition { get; private set; }
+        public Vector2 gridID { get; private set; }
 
         /// <summary>
         /// Create a gridobject.
         /// </summary>
         /// <param name="_gridObject">The object on the grid tile</param>
         /// <param name="_gridPosition">The tile the object is on in world space</param>
-        public GridObject(GameObject _gridObject, Vector2 _gridPosition)
+        /// <param name="_gridID">The location of the GridObject in the 2D array</param>
+        public GridObject(GameObject _gridObject, Vector2 _gridPosition, Vector2 _gridID)
         {
             gridObject = _gridObject;
             gridPosition = _gridPosition;
+            gridID = _gridID;
+
+            gridObject.transform.position = gridPosition;
         }
     }
 }

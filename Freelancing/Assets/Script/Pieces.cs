@@ -42,4 +42,11 @@ public class Pieces : MonoBehaviour
 
         m_Spikes = new Spikes(spikes[0], spikes[1], spikes[2], spikes[3]);
     }
+
+    private void OnMouseDown()
+    {
+        if (gameObject.transform.parent != null)
+            if (gameObject.transform.parent.gameObject == GameManager.instance.m_PlayerPiecesParant)
+                GameManager.instance.m_PlayerSelectedPiece = gameObject;
+    }
 }

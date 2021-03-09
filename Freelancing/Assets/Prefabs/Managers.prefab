@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1362165815509861510}
+  - component: {fileID: 6344914195215074920}
   - component: {fileID: 1362165815509861511}
   m_Layer: 0
   m_Name: Managers
@@ -31,6 +32,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6344914195215074920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362165815509861508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471fc67b87372fc48bd8bda4ab4b00de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlayerSelectedPiece: {fileID: 0}
+  m_PlayerPiecesParant: {fileID: 0}
+  m_FieldPiecesParent: {fileID: 0}
+  dummyPiece: {fileID: 5961732519112206599, guid: b2a42105498844848a96977855c32d62, type: 3}
 --- !u!114 &1362165815509861511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,4 +62,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GridSize: {x: 3, y: 3}
   m_GridOffset: {x: -1, y: -1}
-  m_Piece: {fileID: 5961732519112206599, guid: b2a42105498844848a96977855c32d62, type: 3}
+  l: 1

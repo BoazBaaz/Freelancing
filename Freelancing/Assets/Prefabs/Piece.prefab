@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8620701995781765733}
   - component: {fileID: 1301318723846741092}
+  - component: {fileID: 5315411393522626532}
   - component: {fileID: 8261598784226477553}
   m_Layer: 0
   m_Name: Piece
@@ -83,6 +84,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &5315411393522626532
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944609288325967005}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &8261598784226477553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,3 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15256e344211eff4ab633b1c2bc92bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Color: 0
+  m_Spikes:
+    spikesUp: 0
+    spikesDown: 0
+    spikesLeft: 0
+    spikesRight: 0
