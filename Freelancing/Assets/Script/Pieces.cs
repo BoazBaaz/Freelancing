@@ -31,16 +31,22 @@ public class Pieces : MonoBehaviour
 
     private void Start()
     {
+        if (m_Color == ColorTypes.Blue)
+            gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        else
+            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+
+
         //TODO: pieces can spawn without any spikes. still needs fixing.
 
-        int[] spikes = new int[4];
+        //int[] spikes = new int[4];
 
-        for (int i = 0; i < spikes.Length; i++)
-        {
-            spikes[i] = Random.Range(0, 5);
-        }
+        //for (int i = 0; i < spikes.Length; i++)
+        //{
+        //    spikes[i] = Random.Range(0, 100);
+        //}
 
-        m_Spikes = new Spikes(spikes[0], spikes[1], spikes[2], spikes[3]);
+        //m_Spikes = new Spikes(spikes[0], spikes[1], spikes[2], spikes[3]);
     }
 
     private void OnMouseDown()
