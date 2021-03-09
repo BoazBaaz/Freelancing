@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Pieces : MonoBehaviour
@@ -11,7 +8,7 @@ public class Pieces : MonoBehaviour
         red
     }
 
-    [Serializable]
+    [System.Serializable]
     public struct Spikes
     {
         public int spikesUp;
@@ -30,4 +27,19 @@ public class Pieces : MonoBehaviour
 
     public ColorTypes m_Color;
     public Spikes m_Spikes;
+
+
+    private void Start()
+    {
+        //TODO: pieces can spawn without any spikes. still needs fixing.
+
+        int[] spikes = new int[4];
+
+        for (int i = 0; i < spikes.Length; i++)
+        {
+            spikes[i] = Random.Range(0, 5);
+        }
+
+        m_Spikes = new Spikes(spikes[0], spikes[1], spikes[2], spikes[3]);
+    }
 }

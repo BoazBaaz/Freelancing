@@ -14,4 +14,8 @@ public class GameManager : MonoBehaviour
             Destroy(this);
 
     }
+
+    [Header("Player")]
+    public GameObject m_PlayerSelectedPiece;
+
 }
