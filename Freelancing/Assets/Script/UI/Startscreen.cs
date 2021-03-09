@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Startscreen : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Startscreen : MonoBehaviour
 
     public void StartGame()
     {
-        startScreenUI.SetActive(false);
+        SceneManager.LoadScene(1);
         Time.timeScale = 1f;
     }
 
