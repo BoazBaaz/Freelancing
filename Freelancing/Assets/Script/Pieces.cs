@@ -28,6 +28,6 @@ public class Pieces : MonoBehaviour
         }
     }
 
-    ColorTypes m_Color;
-    Spikes m_Spikes;
+    public ColorTypes m_Color;
+    public Spikes m_Spikes;
 }
