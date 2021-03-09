@@ -27,7 +27,6 @@ public class Startscreen : MonoBehaviour
 
     public void Settings()
     {
-        
         settingsScreenUI.SetActive(true);
     }
 
