@@ -62,46 +62,118 @@ public class GridManager : MonoBehaviour
                 Destroy(_oldPiece);
 
                 //check if there is a match on the field
-                CheckMatch(piece);
+                CheckMatch(m_Grid[(int)piece.gridID.x, (int)piece.gridID.y]);
                 return;
             }
         }
         Debug.LogError($"ERROR: Could not find a match using {_oldPiece}!");
     }
 
-    private void CheckMatch(GridObject _yourGridObject)
+    /// <summary>
+    /// Check if there are potantial matches
+    /// </summary>
+    /// <param name="_piece"></param>
+    private void CheckMatch(GridObject _piece)
     {
-        //list of gridObjects around _yourGridObject
-        List<GridObject> objectsInRange = new List<GridObject>();
+        //TODO: if you hit the border of the field with spikes, "delete" the spikes.
+
+        //your piece
+        Pieces yrp = _piece.gridObject.GetComponent<Pieces>();
 
         //check the x axis for gridObject on the 2D array
         for (int x = -1; x <= 1; x += 2)
         {
-            int calX = (int)_yourGridObject.gridID.x + x;
+            int calX = (int)_piece.gridID.x + x;
             if (calX >= 0 && calX < m_GridSize.x)
-                objectsInRange.Add(m_Grid[calX, (int)_yourGridObject.gridID.y]);
+            {
+                Pieces opp = m_Grid[calX, (int)_piece.gridID.y].gridObject.GetComponent<Pieces>();
+                if (opp != null)
+                {
+                    //check if the opponent is to your left
+                    if (x == -1)
+                    {
+                        if (yrp.m_Spikes.spikesLeft > opp.m_Spikes.spikesRight)
+                        {
+                            //update opponents color
+                            opp.m_Color = yrp.m_Color;
+                            opp.UpdateColor();
+                        }
+
+                        //update your spikes
+                        yrp.m_Spikes.spikesLeft = 0;
+                        yrp.UpdateSpikes();
+
+                        //update opponents spikes
+                        opp.m_Spikes.spikesRight = 0;
+                        opp.UpdateSpikes();
+                    }
+                    else
+                    {
+                        if (yrp.m_Spikes.spikesRight > opp.m_Spikes.spikesLeft)
+                        {
+                            //update opponents color
+                            opp.m_Color = yrp.m_Color;
+                            opp.UpdateColor();
+                        }
+
+                        //update your spikes
+                        yrp.m_Spikes.spikesRight = 0;
+                        yrp.UpdateSpikes();
+
+                        //update opponents spikes
+                        opp.m_Spikes.spikesLeft = 0;
+                        opp.UpdateSpikes();
+                    }
+                }
+            }
         }
 
         //check the y axis for gridObject on the 2D array
         for (int y = -1; y <= 1; y += 2)
         {
-            int calY = (int)_yourGridObject.gridID.y + y;
+            int calY = (int)_piece.gridID.y + y;
             if (calY >= 0 && calY < m_GridSize.y)
-                objectsInRange.Add(m_Grid[(int)_yourGridObject.gridID.x, calY]);
-        }
+            {
+                Pieces opp = m_Grid[(int)_piece.gridID.x, calY].gridObject.GetComponent<Pieces>();
+                if (opp != null)
+                {
+                    //check if the opponent is to your bottom
+                    if (y == -1)
+                    {
+                        if (yrp.m_Spikes.spikesDown > opp.m_Spikes.spikesUp)
+                        {
+                            //update opponents color
+                            opp.m_Color = yrp.m_Color;
+                            opp.UpdateColor();
+                        }
 
-        //list of the opponents around _yourGridObject
-        List<Pieces> opponentPieces = new List<Pieces>();
+                        //update your spikes
+                        yrp.m_Spikes.spikesDown = 0;
+                        yrp.UpdateSpikes();
 
-        //add opponents Pieces script (in range) to list
-        foreach (GridObject obj in objectsInRange)
-        {
-            Pieces opp = obj.gridObject.GetComponent<Pieces>();
-            Pieces yrp = _yourGridObject.gridObject.GetComponent<Pieces>();
+                        //update opponents spikes
+                        opp.m_Spikes.spikesUp = 0;
+                        opp.UpdateSpikes();
+                    }
+                    else
+                    {
+                        if (yrp.m_Spikes.spikesUp > opp.m_Spikes.spikesDown)
+                        {
+                            //update opponents color
+                            opp.m_Color = yrp.m_Color;
+                            opp.UpdateColor();
+                        }
 
-            if (opp != null)
-                if (opp.m_Color != yrp.m_Color)
-                    opponentPieces.Add(opp);
+                        //update your spikes
+                        yrp.m_Spikes.spikesUp = 0;
+                        yrp.UpdateSpikes();
+
+                        //update opponents spikes
+                        opp.m_Spikes.spikesDown = 0;
+                        opp.UpdateSpikes();
+                    }
+                }
+            }
         }
     }
 
