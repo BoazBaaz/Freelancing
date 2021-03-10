@@ -126,12 +126,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15256e344211eff4ab633b1c2bc92bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Color: 0
   m_Spikes:
     spikesUp: 0
     spikesDown: 0
     spikesLeft: 0
     spikesRight: 0
+  m_Color: 0
+  m_SidesSR:
+  - {fileID: 8422206466087003918}
+  - {fileID: 8712796735789107800}
+  - {fileID: 5669430458137997092}
+  - {fileID: 4904600685934663774}
 --- !u!1 &2067889814406874439
 GameObject:
   m_ObjectHideFlags: 0

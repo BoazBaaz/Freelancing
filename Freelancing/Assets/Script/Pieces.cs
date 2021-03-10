@@ -28,8 +28,7 @@ public class Pieces : MonoBehaviour
     [Header("PieceInfo")]
     public Spikes m_Spikes;
     public ColorTypes m_Color;
-
-
+    public SpriteRenderer[] m_SidesSR = new SpriteRenderer[4];
 
     private void Start()
     {
@@ -40,15 +39,10 @@ public class Pieces : MonoBehaviour
 
         RandomiseSpikes();
 
-        //GameObject[] sideSR = GetComponentsInChildren<GameObject>();
-        //for (int i = 0; i < sideSR.Length; i++)
-        //{
-        //    if (sideSR[i] == gameObject)
-        //    {
-        //        Debug.Log("Me");
-        //        break;
-        //    }
-        //}
+        foreach (var side in m_SidesSR)
+        {
+            //TODO: make eatch side correspand with the spikes in m_spikes
+        }
     }
 
     private void OnMouseDown()
