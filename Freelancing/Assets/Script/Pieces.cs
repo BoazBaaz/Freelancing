@@ -36,23 +36,50 @@ public class Pieces : MonoBehaviour
         else
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 
-
-        //TODO: pieces can spawn without any spikes. still needs fixing.
-
-        //int[] spikes = new int[4];
-
-        //for (int i = 0; i < spikes.Length; i++)
-        //{
-        //    spikes[i] = Random.Range(0, 100);
-        //}
-
-        //m_Spikes = new Spikes(spikes[0], spikes[1], spikes[2], spikes[3]);
+        RandomiseSpikes();
     }
 
     private void OnMouseDown()
     {
         if (gameObject.transform.parent != null)
             if (gameObject.transform.parent.gameObject == GameManager.instance.m_PlayerPiecesParant)
-                GameManager.instance.m_PlayerSelectedPiece = gameObject;
+                GameManager.instance.m_SelectedPiece = gameObject;
+    }
+
+    /// <summary>
+    /// Randomise the spikes of this piece. Only 2 sides can have 0 spikes.
+    /// Spike percentage per side.
+    /// 40% - 0 spikes.
+    /// 25% - 1 spikes.
+    /// 20% - 2 spikes
+    /// 10% - 3 spikes.
+    /// 5% - 4 spikes.
+    /// </summary>
+    private void RandomiseSpikes()
+    {
+        int maximumZeroSpikes = 2;
+        int[] spikesAmount = new int[4];
+
+        
+        for (int i = 0; i < spikesAmount.Length; i++)
+        {
+            int spikesPercentage = Random.Range(0, 100);
+
+            if (spikesPercentage >= 0 && spikesPercentage < 40 && maximumZeroSpikes != 0)
+            {
+                spikesAmount[i] = 0;
+                maximumZeroSpikes--;
+            }
+            else if (spikesPercentage >= 40 && spikesPercentage < 65)
+                spikesAmount[i] = 1;
+            else if (spikesPercentage >= 65 && spikesPercentage < 85)
+                spikesAmount[i] = 2; 
+            else if (spikesPercentage >= 85 && spikesPercentage < 95)
+                spikesAmount[i] = 3;
+            else if (spikesPercentage >= 95 && spikesPercentage < 100)
+                spikesAmount[i] = 4;
+        }
+
+        m_Spikes = new Spikes(spikesAmount[0], spikesAmount[1], spikesAmount[2], spikesAmount[3]);
     }
 }

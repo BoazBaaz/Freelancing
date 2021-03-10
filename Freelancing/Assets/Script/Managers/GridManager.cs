@@ -18,6 +18,8 @@ public class GridManager : MonoBehaviour
     [Header("Grid")]
     public Vector2 m_GridSize; //the size of the grid
     public Vector2 m_GridOffset; //the offset the grid will be created at
+    [Range(0, 1)]
+    public float m_GridSpacing; //the spacing betwean tiles.
     public GridObject[,] m_Grid; //a 2D array of the grid
 
     private void Start()
@@ -39,7 +41,7 @@ public class GridManager : MonoBehaviour
             for (int y = 0; y < _length; y++)
             {
                 GameObject dmP = Instantiate(GameManager.instance.dummyPiece, Vector2.zero, Quaternion.identity, GameManager.instance.m_FieldPiecesParent.transform);
-                m_Grid[x, y] = new GridObject(dmP , new Vector2(m_GridOffset.x + x, m_GridOffset.y + y), new Vector2(x, y));
+                m_Grid[x, y] = new GridObject(dmP , new Vector2(m_GridOffset.x + x + (x * m_GridSpacing), m_GridOffset.y + y + (y * m_GridSpacing)), new Vector2(x, y));
             }
         }
     }

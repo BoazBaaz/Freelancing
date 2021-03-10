@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471fc67b87372fc48bd8bda4ab4b00de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayerSelectedPiece: {fileID: 0}
+  m_SelectedPiece: {fileID: 0}
   m_PlayerPiecesParant: {fileID: 0}
+  m_EnemyPiecesParent: {fileID: 0}
   m_FieldPiecesParent: {fileID: 0}
   dummyPiece: {fileID: 5961732519112206599, guid: b2a42105498844848a96977855c32d62, type: 3}
 --- !u!114 &1362165815509861511
@@ -61,5 +62,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_GridSize: {x: 3, y: 3}
-  m_GridOffset: {x: -1, y: -1}
-  l: 1
+  m_GridOffset: {x: -1.4, y: -1.4}
+  m_GridSpacing: 0.4

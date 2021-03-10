@@ -16,10 +16,11 @@ public class GameManager : MonoBehaviour
     }
 
     [Header("Player")]
-    public GameObject m_PlayerSelectedPiece;
+    public GameObject m_SelectedPiece;
 
     [Header("Parents")]
     public GameObject m_PlayerPiecesParant;
+    public GameObject m_EnemyPiecesParent;
     public GameObject m_FieldPiecesParent;
 
     [Header("Prefabs")]
