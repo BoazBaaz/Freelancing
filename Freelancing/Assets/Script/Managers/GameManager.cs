@@ -12,11 +12,11 @@ public class GameManager : MonoBehaviour
             instance = this;
         else
             Destroy(this);
-
     }
 
     [Header("Player")]
     public GameObject m_SelectedPiece;
+    public bool m_PlayerTurn = false;
 
     [Header("Parents")]
     public GameObject m_PlayerPiecesParant;
@@ -25,4 +25,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Prefabs")]
     public GameObject dummyPiece;
+
+    public bool IsPlayerTurn()
+    {
+        return m_PlayerTurn;
+    }
 }

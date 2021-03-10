@@ -29,6 +29,7 @@ public class Pieces : MonoBehaviour
     public Spikes m_Spikes;
     public ColorTypes m_Color;
     public SpriteRenderer[] m_SidesSR = new SpriteRenderer[4];
+    public Sprite[] m_SpikeSprites = new Sprite[5];
 
     private void Start()
     {
@@ -42,14 +43,45 @@ public class Pieces : MonoBehaviour
         foreach (var side in m_SidesSR)
         {
             //TODO: make eatch side correspand with the spikes in m_spikes
+            switch (side.name.ToLower())
+            {
+            case "up":
+            side.sprite = m_SpikeSprites[m_Spikes.spikesUp];
+            break;
+            case "down":
+            side.sprite = m_SpikeSprites[m_Spikes.spikesDown];
+            break;
+            case "left":
+            side.sprite = m_SpikeSprites[m_Spikes.spikesLeft];
+            break;
+            case "right":
+            side.sprite = m_SpikeSprites[m_Spikes.spikesRight];
+            break;
+            default:
+            break;
+            }
         }
     }
 
     private void OnMouseDown()
     {
         if (gameObject.transform.parent != null)
-            if (gameObject.transform.parent.gameObject == GameManager.instance.m_PlayerPiecesParant)
-                GameManager.instance.m_SelectedPiece = gameObject;
+            if (GameManager.instance.IsPlayerTurn())
+            {
+                if (gameObject.transform.parent.gameObject == GameManager.instance.m_PlayerPiecesParant)
+                {
+                    GameManager.instance.m_SelectedPiece = gameObject;
+                    GameManager.instance.m_PlayerTurn = false;
+                }
+            }
+            else if (!GameManager.instance.IsPlayerTurn())
+            {
+                if (gameObject.transform.parent.gameObject == GameManager.instance.m_EnemyPiecesParent)
+                {
+                    GameManager.instance.m_SelectedPiece = gameObject;
+                    GameManager.instance.m_PlayerTurn = true;
+                }
+            }
     }
 
     /// <summary>
@@ -66,8 +98,8 @@ public class Pieces : MonoBehaviour
         int maximumZeroSpikes = 2;
         int[] spikesAmount = new int[4];
 
-        
-        for (int i = 0; i < spikesAmount.Length; i++)
+
+        for (int i = 0 ; i < spikesAmount.Length ; i++)
         {
             int spikesPercentage = Random.Range(0, 100);
 
@@ -79,7 +111,7 @@ public class Pieces : MonoBehaviour
             else if (spikesPercentage >= 40 && spikesPercentage < 65)
                 spikesAmount[i] = 1;
             else if (spikesPercentage >= 65 && spikesPercentage < 85)
-                spikesAmount[i] = 2; 
+                spikesAmount[i] = 2;
             else if (spikesPercentage >= 85 && spikesPercentage < 95)
                 spikesAmount[i] = 3;
             else if (spikesPercentage >= 95 && spikesPercentage < 100)

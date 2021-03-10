@@ -137,6 +137,12 @@ MonoBehaviour:
   - {fileID: 8712796735789107800}
   - {fileID: 5669430458137997092}
   - {fileID: 4904600685934663774}
+  m_SpikeSprites:
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 92e344282b3dd0f43b36269e943304d0, type: 3}
+  - {fileID: 21300000, guid: e8e7bbe5fd21f9d439dc6d03cfcca922, type: 3}
+  - {fileID: 21300000, guid: 5378bb3007171ca41bc123c64de024e2, type: 3}
+  - {fileID: 21300000, guid: dd7b65b6a704ed84f8ff552f98edb931, type: 3}
 --- !u!1 &2067889814406874439
 GameObject:
   m_ObjectHideFlags: 0
