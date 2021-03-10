@@ -70,20 +70,20 @@ public class Pieces : MonoBehaviour
             //TODO: make eatch side correspand with the spikes in m_spikes
             switch (side.name.ToLower())
             {
-            case "up":
-            side.sprite = m_SpikeSprites[m_Spikes.spikesUp];
-            break;
-            case "down":
-            side.sprite = m_SpikeSprites[m_Spikes.spikesDown];
-            break;
-            case "left":
-            side.sprite = m_SpikeSprites[m_Spikes.spikesLeft];
-            break;
-            case "right":
-            side.sprite = m_SpikeSprites[m_Spikes.spikesRight];
-            break;
-            default:
-            break;
+                case "up":
+                    side.sprite = m_SpikeSprites[m_Spikes.spikesUp];
+                    break;
+                case "down":
+                    side.sprite = m_SpikeSprites[m_Spikes.spikesDown];
+                    break;
+                case "left":
+                    side.sprite = m_SpikeSprites[m_Spikes.spikesLeft];
+                    break;
+                case "right":
+                    side.sprite = m_SpikeSprites[m_Spikes.spikesRight];
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -103,11 +103,11 @@ public class Pieces : MonoBehaviour
         int[] spikesAmount = new int[4];
 
 
-        for (int i = 0 ; i < spikesAmount.Length ; i++)
+        for (int i = 0; i < spikesAmount.Length; i++)
         {
             int spikesPercentage = Random.Range(0, 100);
 
-            if (spikesPercentage >= 0 && spikesPercentage < 40 && maximumZeroSpikes != 0)
+            if (spikesPercentage >= 0 && spikesPercentage < 40 && maximumZeroSpikes <= 0)
             {
                 spikesAmount[i] = 0;
                 maximumZeroSpikes--;

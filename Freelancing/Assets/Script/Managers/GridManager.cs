@@ -41,7 +41,7 @@ public class GridManager : MonoBehaviour
             for (int y = 0; y < _length; y++)
             {
                 GameObject dmP = Instantiate(GameManager.instance.dummyPiece, Vector2.zero, Quaternion.identity, GameManager.instance.m_FieldPiecesParent.transform);
-                m_Grid[x, y] = new GridObject(dmP , new Vector2(m_GridOffset.x + x + (x * m_GridSpacing), m_GridOffset.y + y + (y * m_GridSpacing)), new Vector2(x, y));
+                m_Grid[x, y] = new GridObject(dmP, new Vector2(m_GridOffset.x + x + (x * m_GridSpacing), m_GridOffset.y + y + (y * m_GridSpacing)), new Vector2(x, y));
             }
         }
     }
@@ -60,21 +60,49 @@ public class GridManager : MonoBehaviour
             {
                 m_Grid[(int)piece.gridID.x, (int)piece.gridID.y].SetObject(_newPiece);
                 Destroy(_oldPiece);
+
+                //check if there is a match on the field
+                CheckMatch(piece);
                 return;
             }
         }
         Debug.LogError($"ERROR: Could not find a match using {_oldPiece}!");
     }
 
-    /// <summary>
-    /// Returns the gameObject of the GridObject on the corresponding grid location 
-    /// </summary>
-    /// <param name="xGrid">The x position in the grid</param>
-    /// <param name="yGrid">The y position in the grid</param>
-    /// <returns></returns>
-    public GameObject GetGridPieceOnLocation(int xGrid, int yGrid)
+    private void CheckMatch(GridObject _yourGridObject)
     {
-        return m_Grid[xGrid, yGrid].gridObject;
+        //list of gridObjects around _yourGridObject
+        List<GridObject> objectsInRange = new List<GridObject>();
+
+        //check the x axis for gridObject on the 2D array
+        for (int x = -1; x <= 1; x += 2)
+        {
+            int calX = (int)_yourGridObject.gridID.x + x;
+            if (calX >= 0 && calX < m_GridSize.x)
+                objectsInRange.Add(m_Grid[calX, (int)_yourGridObject.gridID.y]);
+        }
+
+        //check the y axis for gridObject on the 2D array
+        for (int y = -1; y <= 1; y += 2)
+        {
+            int calY = (int)_yourGridObject.gridID.y + y;
+            if (calY >= 0 && calY < m_GridSize.y)
+                objectsInRange.Add(m_Grid[(int)_yourGridObject.gridID.x, calY]);
+        }
+
+        //list of the opponents around _yourGridObject
+        List<Pieces> opponentPieces = new List<Pieces>();
+
+        //add opponents Pieces script (in range) to list
+        foreach (GridObject obj in objectsInRange)
+        {
+            Pieces opp = obj.gridObject.GetComponent<Pieces>();
+            Pieces yrp = _yourGridObject.gridObject.GetComponent<Pieces>();
+
+            if (opp != null)
+                if (opp.m_Color != yrp.m_Color)
+                    opponentPieces.Add(opp);
+        }
     }
 
     [Serializable]
