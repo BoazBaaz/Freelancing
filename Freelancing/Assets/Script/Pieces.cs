@@ -39,28 +39,7 @@ public class Pieces : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 
         RandomiseSpikes();
-
-        foreach (var side in m_SidesSR)
-        {
-            //TODO: make eatch side correspand with the spikes in m_spikes
-            switch (side.name.ToLower())
-            {
-            case "up":
-            side.sprite = m_SpikeSprites[m_Spikes.spikesUp];
-            break;
-            case "down":
-            side.sprite = m_SpikeSprites[m_Spikes.spikesDown];
-            break;
-            case "left":
-            side.sprite = m_SpikeSprites[m_Spikes.spikesLeft];
-            break;
-            case "right":
-            side.sprite = m_SpikeSprites[m_Spikes.spikesRight];
-            break;
-            default:
-            break;
-            }
-        }
+        UpdateSpikes();
     }
 
     private void OnMouseDown()
@@ -82,6 +61,31 @@ public class Pieces : MonoBehaviour
                     GameManager.instance.m_PlayerTurn = true;
                 }
             }
+    }
+
+    public void UpdateSpikes()
+    {
+        foreach (var side in m_SidesSR)
+        {
+            //TODO: make eatch side correspand with the spikes in m_spikes
+            switch (side.name.ToLower())
+            {
+            case "up":
+            side.sprite = m_SpikeSprites[m_Spikes.spikesUp];
+            break;
+            case "down":
+            side.sprite = m_SpikeSprites[m_Spikes.spikesDown];
+            break;
+            case "left":
+            side.sprite = m_SpikeSprites[m_Spikes.spikesLeft];
+            break;
+            case "right":
+            side.sprite = m_SpikeSprites[m_Spikes.spikesRight];
+            break;
+            default:
+            break;
+            }
+        }
     }
 
     /// <summary>
