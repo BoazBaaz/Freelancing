@@ -2,12 +2,6 @@ using UnityEngine;
 
 public class Pieces : MonoBehaviour
 {
-    public enum ColorTypes : int
-    {
-        Blue = 0,
-        red
-    }
-
     [System.Serializable]
     public struct Spikes
     {
@@ -25,8 +19,16 @@ public class Pieces : MonoBehaviour
         }
     }
 
-    public ColorTypes m_Color;
+    public enum ColorTypes : int
+    {
+        Blue = 0,
+        red
+    }
+
+    [Header("PieceInfo")]
     public Spikes m_Spikes;
+    public ColorTypes m_Color;
+
 
 
     private void Start()
@@ -37,6 +39,16 @@ public class Pieces : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
 
         RandomiseSpikes();
+
+        //GameObject[] sideSR = GetComponentsInChildren<GameObject>();
+        //for (int i = 0; i < sideSR.Length; i++)
+        //{
+        //    if (sideSR[i] == gameObject)
+        //    {
+        //        Debug.Log("Me");
+        //        break;
+        //    }
+        //}
     }
 
     private void OnMouseDown()
