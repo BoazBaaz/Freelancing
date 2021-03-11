@@ -215,12 +215,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7638968627472246425, guid: 0cc03f9911813b5418adfd70a0193b6b, type: 3}
       propertyPath: levelMusicArray.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7638968627472246425, guid: 0cc03f9911813b5418adfd70a0193b6b, type: 3}
+      propertyPath: levelMusicArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: f9bef7b08945afa4d94020539e0aaa7b, type: 3}
     - target: {fileID: 7638968627472246425, guid: 0cc03f9911813b5418adfd70a0193b6b, type: 3}
       propertyPath: levelMusicArray.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: f9bef7b08945afa4d94020539e0aaa7b, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7638968627472246425, guid: 0cc03f9911813b5418adfd70a0193b6b, type: 3}
       propertyPath: levelMusicArray.Array.data[3]
       value: 
@@ -726,9 +730,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2cccb89ca8186448e0a7c5177d7f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 0}
-  dialogueText: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!4 &872867637
 Transform:
   m_ObjectHideFlags: 0
