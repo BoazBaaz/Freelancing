@@ -8,10 +8,21 @@ public class DummyPiece : MonoBehaviour
     {
         if (gameObject.transform.parent != null)
             if (gameObject.transform.parent.gameObject == GameManager.instance.m_FieldPiecesParent)
+            {
+
                 if (GameManager.instance.m_SelectedPiece != null)
                 {
                     GridManager.instance.SetGridPieceOnLocation(GameManager.instance.m_SelectedPiece, gameObject);
                     GameManager.instance.m_SelectedPiece = null;
+                    if (GameManager.instance.IsPlayerTurn())
+                    {
+                        GameManager.instance.m_PlayerTurn = false;
+                    }
+                    else if (!GameManager.instance.IsPlayerTurn())
+                    {
+                        GameManager.instance.m_PlayerTurn = true;
+                    }
                 }
+            }
     }
 }
