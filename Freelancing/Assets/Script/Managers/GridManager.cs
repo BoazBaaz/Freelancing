@@ -77,20 +77,22 @@ public class GridManager : MonoBehaviour
     {
         //TODO: if you hit the border of the field with spikes, "delete" the spikes.
 
-        //your piece
+        //your pieces information
         Pieces yrp = _piece.gridObject.GetComponent<Pieces>();
 
         //check the x axis for gridObject on the 2D array
         for (int x = -1; x <= 1; x += 2)
         {
             int calX = (int)_piece.gridID.x + x;
+
+            //check if you are inside the bounds of the 2D array
             if (calX >= 0 && calX < m_GridSize.x)
             {
                 Pieces opp = m_Grid[calX, (int)_piece.gridID.y].gridObject.GetComponent<Pieces>();
                 if (opp != null)
                 {
                     //check if the opponent is to your left
-                    if (x == -1)
+                    if (x == -1) 
                     {
                         if (yrp.m_Spikes.spikesLeft > opp.m_Spikes.spikesRight)
                         {
@@ -107,7 +109,8 @@ public class GridManager : MonoBehaviour
                         opp.m_Spikes.spikesRight = 0;
                         opp.UpdateSpikes();
                     }
-                    else
+                    //check if the opponent is to your right
+                    else if (x == 1) 
                     {
                         if (yrp.m_Spikes.spikesRight > opp.m_Spikes.spikesLeft)
                         {
@@ -126,18 +129,34 @@ public class GridManager : MonoBehaviour
                     }
                 }
             }
+            //check if border is to your left
+            else if (x == -1) 
+            {
+                //update your spikes
+                yrp.m_Spikes.spikesLeft = 0;
+                yrp.UpdateSpikes();
+            }
+            //check if border is to your right
+            else if (x == 1) 
+            {
+                //update your spikes
+                yrp.m_Spikes.spikesRight = 0;
+                yrp.UpdateSpikes();
+            }
         }
 
         //check the y axis for gridObject on the 2D array
         for (int y = -1; y <= 1; y += 2)
         {
             int calY = (int)_piece.gridID.y + y;
+
+            //check if you are inside the bounds of the 2D array
             if (calY >= 0 && calY < m_GridSize.y)
             {
                 Pieces opp = m_Grid[(int)_piece.gridID.x, calY].gridObject.GetComponent<Pieces>();
                 if (opp != null)
                 {
-                    //check if the opponent is to your bottom
+                    //check if the opponent is below you
                     if (y == -1)
                     {
                         if (yrp.m_Spikes.spikesDown > opp.m_Spikes.spikesUp)
@@ -155,7 +174,8 @@ public class GridManager : MonoBehaviour
                         opp.m_Spikes.spikesUp = 0;
                         opp.UpdateSpikes();
                     }
-                    else
+                    //check if the opponent is above you
+                    else if (y == 1)
                     {
                         if (yrp.m_Spikes.spikesUp > opp.m_Spikes.spikesDown)
                         {
@@ -173,6 +193,20 @@ public class GridManager : MonoBehaviour
                         opp.UpdateSpikes();
                     }
                 }
+            }
+            //check if border is below you
+            else if (y == -1)
+            {
+                //update your spikes
+                yrp.m_Spikes.spikesDown = 0;
+                yrp.UpdateSpikes();
+            }
+            //check if border is above you
+            else if (y == 1)
+            {
+                //update your spikes
+                yrp.m_Spikes.spikesUp = 0;
+                yrp.UpdateSpikes();
             }
         }
     }
