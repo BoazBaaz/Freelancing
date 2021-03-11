@@ -5,11 +5,21 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public static GameManager instance;
+    public static UIManager instance;
 
+    public void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this);
+    }
+
+    //private
     private int playerScore = 0;
     private int enemyScore = 0;
 
+    [Header("TMPs")]
     [SerializeField] TextMeshProUGUI playerScoreText;
     [SerializeField] TextMeshProUGUI enemyScoreText;
 
@@ -19,27 +29,19 @@ public class UIManager : MonoBehaviour
         enemyScoreText.text = enemyScore.ToString();
     }
 
-    public void AddPlayerScore()
+    /// <summary>
+    /// Update the scores on the canvas
+    /// </summary>
+    /// <param name="_pScore">New player score</param>
+    /// <param name="_eScore">New enemy score</param>
+    public void UpdateScore(int _pScore, int _eScore)
     {
-        playerScore++;
+        //update player score
+        playerScore = _pScore;
         playerScoreText.text = playerScore.ToString();
-    }
 
-    public void LosePlayerScore()
-    {
-        playerScore--;
-        playerScoreText.text = playerScore.ToString();
-    }
-
-    public void AddEnemyScore()
-    {
-        enemyScore++;
-        enemyScoreText.text = enemyScore.ToString();
-    }
-
-    public void LoseEnemyScore()
-    {
-        enemyScore--;
+        //update enemy score
+        enemyScore = _eScore;
         enemyScoreText.text = enemyScore.ToString();
     }
 }
