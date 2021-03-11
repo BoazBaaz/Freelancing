@@ -63,6 +63,26 @@ public class GridManager : MonoBehaviour
 
                 //check if there is a match on the field
                 CheckMatch(m_Grid[(int)piece.gridID.x, (int)piece.gridID.y]);
+
+                //change the scores
+                int pSc = 0;
+                int eSc = 0;
+
+                foreach (GridObject gObj in m_Grid)
+                {
+                    Pieces gPiece = gObj.gridObject.GetComponent<Pieces>();
+                    if (gPiece != null)
+                    {
+                        if (gPiece.m_Color == Pieces.ColorTypes.Blue)
+                            pSc++;
+                        else
+                            eSc++;
+                    }
+                }
+
+                //update scores on the canvas
+                UIManager.instance.UpdateScore(pSc, eSc);
+
                 return;
             }
         }
