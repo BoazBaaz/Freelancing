@@ -44,16 +44,12 @@ public class Pieces : MonoBehaviour
             if (GameManager.instance.IsPlayerTurn())
             {
                 if (gameObject.transform.parent.gameObject == GameManager.instance.m_PlayerPiecesParant)
-                {
                     GameManager.instance.m_SelectedPiece = gameObject;
-                }
             }
             else if (!GameManager.instance.IsPlayerTurn())
             {
                 if (gameObject.transform.parent.gameObject == GameManager.instance.m_EnemyPiecesParent)
-                {
                     GameManager.instance.m_SelectedPiece = gameObject;
-                }
             }
     }
 
