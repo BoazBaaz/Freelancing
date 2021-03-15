@@ -72,21 +72,39 @@ public class Pieces : MonoBehaviour
 
         for (int i = 0; i < spikesAmount.Length; i++)
         {
-            int spikesPercentage = Random.Range(0, 100);
+            bool gotFaledSpikes = false;
 
-            if (spikesPercentage >= 0 && spikesPercentage < 40 && maximumZeroSpikes <= 0)
+            while (!gotFaledSpikes)
             {
-                spikesAmount[i] = 0;
-                maximumZeroSpikes--;
+                int spikesPercentage = Random.Range(0, 100);
+
+                if (spikesPercentage >= 0 && spikesPercentage < 40 && maximumZeroSpikes != 0)
+                {
+                    spikesAmount[i] = 0;
+                    maximumZeroSpikes--;
+                    gotFaledSpikes = true;
+                }
+                else if (spikesPercentage >= 40 && spikesPercentage < 65)
+                {
+                    spikesAmount[i] = 1;
+                    gotFaledSpikes = true;
+                }
+                else if (spikesPercentage >= 65 && spikesPercentage < 85)
+                {
+                    spikesAmount[i] = 2;
+                    gotFaledSpikes = true;
+                }
+                else if (spikesPercentage >= 85 && spikesPercentage < 95)
+                {
+                    spikesAmount[i] = 3;
+                    gotFaledSpikes = true;
+                }
+                else if (spikesPercentage >= 95 && spikesPercentage < 100)
+                {
+                    spikesAmount[i] = 4;
+                    gotFaledSpikes = true;
+                }
             }
-            else if (spikesPercentage >= 40 && spikesPercentage < 65)
-                spikesAmount[i] = 1;
-            else if (spikesPercentage >= 65 && spikesPercentage < 85)
-                spikesAmount[i] = 2;
-            else if (spikesPercentage >= 85 && spikesPercentage < 95)
-                spikesAmount[i] = 3;
-            else if (spikesPercentage >= 95 && spikesPercentage < 100)
-                spikesAmount[i] = 4;
         }
 
         m_Spikes = new Spikes(spikesAmount[0], spikesAmount[1], spikesAmount[2], spikesAmount[3]);
