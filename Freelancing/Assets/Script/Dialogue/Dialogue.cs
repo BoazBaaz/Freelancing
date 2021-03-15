@@ -56,6 +56,6 @@ public class Dialogue : MonoBehaviour
 
     public void NextScene()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -23,10 +23,17 @@ public class UIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI playerScoreText;
     [SerializeField] TextMeshProUGUI enemyScoreText;
 
+    [Header("UIPanels")]
+    [SerializeField] GameObject winScreen;
+    [SerializeField] GameObject loseScreen;
+
     private void Start()
     {
         playerScoreText.text = playerScore.ToString();
         enemyScoreText.text = enemyScore.ToString();
+
+        winScreen.SetActive(false);
+        loseScreen.SetActive(false);
     }
 
     /// <summary>
@@ -43,5 +50,10 @@ public class UIManager : MonoBehaviour
         //update enemy score
         enemyScore = _eScore;
         enemyScoreText.text = enemyScore.ToString();
+
+        if (_pScore > _eScore && _pScore + _eScore == 9)
+            winScreen.SetActive(true);
+        else if (_eScore > _pScore && _pScore + _eScore == 9)
+            loseScreen.SetActive(true);
     }
 }

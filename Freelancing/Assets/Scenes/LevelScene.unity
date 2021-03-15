@@ -770,7 +770,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 634525434}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 708558695}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: LoadStartScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &634525434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,18 +960,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8620701995781765733, guid: ae59e2a24bd0439499e6ad9951ef1725, type: 3}
   m_PrefabInstance: {fileID: 660409233}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &708558694 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1362165815509861508, guid: e85439d5bb6afec4fbd8fa38bb6cd9e3, type: 3}
+--- !u!114 &708558695 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4791796280950912653, guid: e85439d5bb6afec4fbd8fa38bb6cd9e3, type: 3}
   m_PrefabInstance: {fileID: 1362165815738306589}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &708558695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 708558694}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0eab8c7b7afcd4d4993a8ac056ad5db1, type: 3}
@@ -1047,7 +1053,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 721700979}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 708558695}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: LoadStartScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &721700979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2093,6 +2111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScoreText: {fileID: 1180368589}
   enemyScoreText: {fileID: 1553308982}
+  winScreen: {fileID: 637656991}
+  loseScreen: {fileID: 1003373662}
 --- !u!1001 &1719732769
 PrefabInstance:
   m_ObjectHideFlags: 0
