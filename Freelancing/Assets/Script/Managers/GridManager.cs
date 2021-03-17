@@ -80,8 +80,9 @@ public class GridManager : MonoBehaviour
                     }
                 }
 
-                //update scores on the canvas
+                //update the score and turn indicator on the canvas
                 UIManager.instance.UpdateScore(pSc, eSc);
+                UIManager.instance.UpdateTurnIndicator();
 
                 return;
             }

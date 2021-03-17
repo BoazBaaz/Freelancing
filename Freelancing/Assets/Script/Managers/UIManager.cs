@@ -27,6 +27,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject winScreen;
     [SerializeField] GameObject loseScreen;
 
+    [Header("TurnIndicator")]
+    [SerializeField] GameObject playerFill;
+    [SerializeField] GameObject enemyFill;
+
     private void Start()
     {
         playerScoreText.text = playerScore.ToString();
@@ -55,5 +59,19 @@ public class UIManager : MonoBehaviour
             winScreen.SetActive(true);
         else if (_eScore > _pScore && _pScore + _eScore == 9)
             loseScreen.SetActive(true);
+    }
+
+    public void UpdateTurnIndicator()
+    {
+        if (playerFill.activeSelf)
+        {
+            playerFill.SetActive(false);
+            enemyFill.SetActive(true);
+        }
+        else if (enemyFill.activeSelf)
+        {
+            playerFill.SetActive(true);
+            enemyFill.SetActive(false);
+        }
     }
 }
