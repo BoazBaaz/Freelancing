@@ -50,12 +50,8 @@ public class Dialogue : MonoBehaviour
         {
             textDisplay.text = "";
             continueButton.SetActive(false);
-            nextSceneButton.SetActive(true);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
-    public void NextScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
 }
