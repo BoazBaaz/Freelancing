@@ -2122,6 +2122,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 132588176}
     - target: {fileID: 9062097603244891167, guid: 605116f945af6df48af66290dbb8a914, type: 3}
+      propertyPath: typingSpeed
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062097603244891167, guid: 605116f945af6df48af66290dbb8a914, type: 3}
       propertyPath: continueButton
       value: 
       objectReference: {fileID: 1213622817}
