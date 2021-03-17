@@ -58,14 +58,12 @@ public class Pieces : MonoBehaviour
     /// Spike percentage per side.
     /// 40% - 0 spikes.
     /// 25% - 1 spikes.
-    /// 20% - 2 spikes
+    /// 20% - 2 spikes.
     /// 10% - 3 spikes.
     /// 5% - 4 spikes.
     /// </summary>
     private void RandomiseSpikes()
     {
-        //TODO: Better spike generation.
-
         int maximumZeroSpikes = 2;
         int[] spikesAmount = new int[4];
 
