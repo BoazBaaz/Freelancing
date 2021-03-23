@@ -25,14 +25,19 @@ public class Pieces : MonoBehaviour
         Red
     }
 
-    [Header("PieceInfo")]
+    [Header("SpikeInfo")]
     public Spikes m_Spikes;
-    public ColorTypes m_Color;
     public SpriteRenderer[] m_SidesSR = new SpriteRenderer[4];
     public Sprite[] m_SpikeSprites = new Sprite[5];
 
+    [Header("PieceInfo")]
+    public ColorTypes m_Color;
+    public SpriteRenderer m_DocentSprite;
+    public Sprite[] m_DocentSprites;
+
     private void Start()
     {
+        RandomDocent();
         RandomiseSpikes();
         UpdateSpikes();
         UpdateColor();
@@ -51,6 +56,16 @@ public class Pieces : MonoBehaviour
                 if (gameObject.transform.parent.gameObject == GameManager.instance.m_EnemyPiecesParent)
                     GameManager.instance.m_SelectedPiece = gameObject;
             }
+    }
+
+    /// <summary>
+    /// Set the sprite of the piece to a random picure of a "Docent".
+    /// </summary>
+    private void RandomDocent()
+    {
+        int randomIndex = Random.Range(0, m_DocentSprites.Length);
+
+        m_DocentSprite.sprite = m_DocentSprites[randomIndex];
     }
 
     /// <summary>
