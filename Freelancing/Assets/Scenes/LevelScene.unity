@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &139209811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4923511875323151196, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+  m_PrefabInstance: {fileID: 1556614321187995167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &198103161
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1296,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1556614320720442078, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: GameBorder
+      value: 
+      objectReference: {fileID: 139209811}
     - target: {fileID: 1556614321042089656, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
       propertyPath: m_fontSize
       value: 104.68
@@ -1353,7 +1362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1556614321758527872, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1556614321758527935, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1502,6 +1511,26 @@ PrefabInstance:
     - target: {fileID: 7792126390495141211, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281626948209776911, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 543.7697
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281626948209776911, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 522.9041
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281626948209776911, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281626948209776911, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.4376
+      objectReference: {fileID: 0}
+    - target: {fileID: 8281626948209776911, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000026703
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}

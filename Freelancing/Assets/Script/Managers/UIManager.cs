@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     [Header("UIPanels")]
     [SerializeField] GameObject winScreen;
     [SerializeField] GameObject loseScreen;
+    [SerializeField] GameObject GameBorder;
 
     [Header("TurnIndicator")]
     [SerializeField] GameObject playerFill;
@@ -56,9 +57,13 @@ public class UIManager : MonoBehaviour
         enemyScoreText.text = enemyScore.ToString();
 
         if (_pScore > _eScore && _pScore + _eScore == 9)
+        {
             winScreen.SetActive(true);
+        }
         else if (_eScore > _pScore && _pScore + _eScore == 9)
+        {
             loseScreen.SetActive(true);
+        }
     }
 
     public void UpdateTurnIndicator()
