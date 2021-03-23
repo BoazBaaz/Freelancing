@@ -130,10 +130,78 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1556614319817126804, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c240a8b7b753cd64a81a33fcf64885c0, type: 2}
+    - target: {fileID: 1556614319817126804, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3754873275977468834, guid: c240a8b7b753cd64a81a33fcf64885c0, type: 2}
+    - target: {fileID: 1556614320038060841, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_fontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556614320038060841, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c240a8b7b753cd64a81a33fcf64885c0, type: 2}
+    - target: {fileID: 1556614320038060841, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556614320038060841, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3754873275977468834, guid: c240a8b7b753cd64a81a33fcf64885c0, type: 2}
+    - target: {fileID: 1556614320151380178, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_fontSize
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556614320151380178, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c240a8b7b753cd64a81a33fcf64885c0, type: 2}
+    - target: {fileID: 1556614320151380178, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556614320151380178, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3754873275977468834, guid: c240a8b7b753cd64a81a33fcf64885c0, type: 2}
+    - target: {fileID: 1556614320497859312, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c240a8b7b753cd64a81a33fcf64885c0, type: 2}
+    - target: {fileID: 1556614320497859312, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556614321042089656, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c240a8b7b753cd64a81a33fcf64885c0, type: 2}
+    - target: {fileID: 1556614321042089656, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1556614321366885536, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
       propertyPath: m_LocalPosition.z
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 1556614321758527872, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556614321780730112, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: c240a8b7b753cd64a81a33fcf64885c0, type: 2}
+    - target: {fileID: 1556614321780730112, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 3754873275977468834, guid: c240a8b7b753cd64a81a33fcf64885c0, type: 2}
     - target: {fileID: 1556614321868897397, guid: c2b11a526a1df5d4ea69077c8de86811, type: 3}
       propertyPath: m_RootOrder
       value: 0
