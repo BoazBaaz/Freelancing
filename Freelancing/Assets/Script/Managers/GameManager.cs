@@ -22,6 +22,14 @@ public class GameManager : MonoBehaviour
     public GameObject m_EnemyPiecesParent;
     public GameObject m_FieldPiecesParent;
 
+    [Header("Audio")]
+    public AudioSource m_AudioSource;
+    public AudioClip m_HitAudio;
+    public AudioClip m_LoseAudio;
+    public AudioClip m_SwooshAudio;
+    public AudioClip m_WinAudio;
+
+
     [Header("Prefabs")]
     public GameObject dummyPiece;
 
@@ -39,5 +47,11 @@ public class GameManager : MonoBehaviour
     public bool IsPlayerTurn()
     {
         return playerTurn;
+    }
+
+    public void PlayAudio(AudioClip _audio)
+    {
+        m_AudioSource.clip = _audio;
+        m_AudioSource.Play();
     }
 }

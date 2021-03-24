@@ -61,6 +61,9 @@ public class GridManager : MonoBehaviour
                 m_Grid[(int)piece.gridID.x, (int)piece.gridID.y].SetObject(_newPiece);
                 Destroy(_oldPiece);
 
+                //play the swoosh sound
+                GameManager.instance.PlayAudio(GameManager.instance.m_SwooshAudio);
+
                 //check if there is a match on the field
                 CheckMatch(m_Grid[(int)piece.gridID.x, (int)piece.gridID.y]);
 
@@ -96,8 +99,6 @@ public class GridManager : MonoBehaviour
     /// <param name="_piece"></param>
     private void CheckMatch(GridObject _piece)
     {
-        //TODO: if you hit the border of the field with spikes, "delete" the spikes.
-
         //your pieces information
         Pieces yrp = _piece.gridObject.GetComponent<Pieces>();
 
@@ -115,11 +116,14 @@ public class GridManager : MonoBehaviour
                     //check if the opponent is to your left
                     if (x == -1) 
                     {
-                        if (yrp.m_Spikes.spikesLeft > opp.m_Spikes.spikesRight)
+                        if (yrp.m_Spikes.spikesLeft > opp.m_Spikes.spikesRight && yrp.m_Color != opp.m_Color)
                         {
                             //update opponents color
                             opp.m_Color = yrp.m_Color;
                             opp.UpdateColor();
+
+                            //play the hit sound
+                            GameManager.instance.PlayAudio(GameManager.instance.m_HitAudio);
                         }
 
                         //update your spikes
@@ -133,11 +137,14 @@ public class GridManager : MonoBehaviour
                     //check if the opponent is to your right
                     else if (x == 1) 
                     {
-                        if (yrp.m_Spikes.spikesRight > opp.m_Spikes.spikesLeft)
+                        if (yrp.m_Spikes.spikesRight > opp.m_Spikes.spikesLeft && yrp.m_Color != opp.m_Color)
                         {
                             //update opponents color
                             opp.m_Color = yrp.m_Color;
                             opp.UpdateColor();
+
+                            //play the hit sound
+                            GameManager.instance.PlayAudio(GameManager.instance.m_HitAudio);
                         }
 
                         //update your spikes
@@ -180,11 +187,14 @@ public class GridManager : MonoBehaviour
                     //check if the opponent is below you
                     if (y == -1)
                     {
-                        if (yrp.m_Spikes.spikesDown > opp.m_Spikes.spikesUp)
+                        if (yrp.m_Spikes.spikesDown > opp.m_Spikes.spikesUp && yrp.m_Color != opp.m_Color)
                         {
                             //update opponents color
                             opp.m_Color = yrp.m_Color;
                             opp.UpdateColor();
+
+                            //play the hit sound
+                            GameManager.instance.PlayAudio(GameManager.instance.m_HitAudio);
                         }
 
                         //update your spikes
@@ -198,11 +208,14 @@ public class GridManager : MonoBehaviour
                     //check if the opponent is above you
                     else if (y == 1)
                     {
-                        if (yrp.m_Spikes.spikesUp > opp.m_Spikes.spikesDown)
+                        if (yrp.m_Spikes.spikesUp > opp.m_Spikes.spikesDown && yrp.m_Color != opp.m_Color)
                         {
                             //update opponents color
                             opp.m_Color = yrp.m_Color;
                             opp.UpdateColor();
+
+                            //play the hit sound
+                            GameManager.instance.PlayAudio(GameManager.instance.m_HitAudio);
                         }
 
                         //update your spikes

@@ -58,10 +58,18 @@ public class UIManager : MonoBehaviour
 
         if (_pScore > _eScore && _pScore + _eScore == 9)
         {
+            //play the win sound
+            GameManager.instance.PlayAudio(GameManager.instance.m_WinAudio);
+
+            //active the win screen
             winScreen.SetActive(true);
         }
         else if (_eScore > _pScore && _pScore + _eScore == 9)
         {
+            //play the hit sound
+            GameManager.instance.PlayAudio(GameManager.instance.m_LoseAudio);
+
+            //active the lose screen
             loseScreen.SetActive(true);
         }
     }
