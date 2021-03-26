@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        m_cards = 4;
+        m_cards = 5;
     }
 
     private void Update()
@@ -36,9 +36,7 @@ public class EnemyAI : MonoBehaviour
         else
         {
             for (int i = 0; i < m_cards; i++)
-            {
                 m_CardList.Add(GameManager.instance.m_EnemyPiecesParent.transform.GetChild(i).gameObject);
-            }
 
             m_CardIndex = Random.Range(0, m_CardList.Count);
 
@@ -46,18 +44,17 @@ public class EnemyAI : MonoBehaviour
         }
 
         if (m_SelectedCardObject != null)
-        {
             PlaceCard();
-        }
     }
 
     public void PlaceCard()
     {
-        int fieldPieceIndex = Random.Range(0, GridManager.instance.m_Grid.Length);
+        int rX = Random.Range(0, 3);
+        int rY = Random.Range(0, 3);
 
-        GameObject currentFieldPiece = GameManager.instance.m_FieldPiecesParent.transform.GetChild(fieldPieceIndex).gameObject;
+        GameObject currentFieldPiece = GridManager.instance.m_Grid[rX, rY].gridObject.gameObject;
 
-        if (currentFieldPiece.CompareTag("FieldPieces"))
+        if (currentFieldPiece.name.Contains(GameManager.instance.dummyPiece.name))
         {
             if (currentFieldPiece.gameObject.transform.parent != null && m_SelectedCardObject.gameObject.transform.parent != null)
             {
@@ -74,13 +71,16 @@ public class EnemyAI : MonoBehaviour
 
                         m_cards--;
                         m_CardList.Clear();
+                        m_SelectedCardObject = null;
+                        GameManager.instance.m_SelectedPiece = null;
+
+                        return;
                     }
                 }
             }
         }
-        else
-        {
-            return;
-        }
+
+
+        PlaceCard();
     }
 }

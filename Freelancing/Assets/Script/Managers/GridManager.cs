@@ -90,7 +90,6 @@ public class GridManager : MonoBehaviour
                 return;
             }
         }
-        Debug.LogError($"ERROR: Could not find a match using {_oldPiece}!");
     }
 
     /// <summary>

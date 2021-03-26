@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Player")]
     public GameObject m_SelectedPiece;
+    public bool playerTurn = false;
 
     [Header("Parents")]
     public GameObject m_PlayerPiecesParant;
@@ -34,7 +35,6 @@ public class GameManager : MonoBehaviour
     public GameObject dummyPiece;
 
     //private
-    private bool playerTurn = false;
 
     public void SwitchTurn()
     {
