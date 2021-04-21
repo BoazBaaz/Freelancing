@@ -146,12 +146,7 @@ MonoBehaviour:
   m_Color: 0
   m_DocentSprite: {fileID: 6756125193876569798}
   m_DocentSprites:
-  - {fileID: 21300000, guid: 0e5b81c7aa7cb434e8f71e48c3ccfc0d, type: 3}
-  - {fileID: 21300000, guid: 9117f66143c71dc4a967b9a39c949029, type: 3}
-  - {fileID: 21300000, guid: fde8b160d4d669c44a500f1e9c113220, type: 3}
-  - {fileID: 21300000, guid: baff1986766db3f41a4168adb28d930f, type: 3}
-  - {fileID: 21300000, guid: 202744b63b177714a9cf2b78b8dc0fe3, type: 3}
-  - {fileID: 21300000, guid: 60510e3ba931c584fbcdcc3257859af1, type: 3}
+  - {fileID: 7482667652216324306, guid: 7c35a6bf955225d4d8aa4dbf3103e195, type: 3}
 --- !u!1 &2067889814406874439
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +299,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 7c35a6bf955225d4d8aa4dbf3103e195, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
